@@ -1,0 +1,53 @@
+<div class="container">
+   <form autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <h3><u>Contact</u></h3>
+    <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email"
+        class="form-control"
+        ngModel name="email"
+        [(ngModel)]="login.email"
+        #email="ngModel"
+        required
+        minlength="10"
+        maxlength="30">
+    <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+        <div *ngIf="email.errors?.['required']">required</div>
+        <div *ngIf="email.errors?.['minlength']">minimum 5 charecters</div>
+       <div *ngIf="email.errors?.['maxlength']">maximum 20 charecter</div>
+       <div *ngIf="email.errors?.['pattern']">pattern</div>
+    </div>
+</div>
+
+
+     <div class="form-group">
+         <label for="password">password</label>
+         <input type="password" id="password"
+         class="form-control"
+         ngModel name="password"
+         [(ngModel)]="login.password"
+        #password="ngModel"
+        required
+        minlength="5"
+        maxlength="10">
+    <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+        <div *ngIf="password.errors?.['required']">required</div>
+        <div *ngIf="password.errors?.['minlength']">minimum 5 charecters</div>
+       <div *ngIf="password.errors?.['maxlength']">maximum 20 charecter</div>
+       <div *ngIf="password.errors?.['pattern']">pattern</div>
+    </div>
+     </div>
+
+     <div class="form-group">
+        <label for="confirmPaswword">confirm password</label>
+        <input type="password" name="confirmPaswword" id="confirmPaswword" class="form-control"
+        #confirmPassword="ngModel" [(ngModel)]="confirmPass" pattern="{{login.password}}" required>
+        <div class="alert alert-danger" *ngIf="confirmPassword.touched && !confirmPassword.valid">
+            <div *ngIf="confirmPassword.errors?.['required']">confirm password required</div>
+
+     </div>
+</div>
+     <button class="btn btn-danger" type="submit">send</button>
+ </form>
+
+ 

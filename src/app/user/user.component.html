@@ -1,0 +1,59 @@
+<h1 style="text-align: center;">welcome to my chanel</h1>
+
+
+<p><b>welcome :</b> {{name}}</p>
+<p><b>from :</b>{{location}}</p>
+<p><b> Status :</b>{{getstatus()}}</p>
+
+
+<button type="button" class="btn btn-danger"(click)="getmessage()">save</button>
+
+<div class="row">
+<div class="col-md-4 offset-md-4">
+    <div class="card">
+        <div class="card-header">
+      <h4 class="text-center">two way binding</h4>
+        </div>
+        <div class="card-body">
+            <input type="text" class="form-control" [(ngModel)]="message">
+            <b class="text-danger">{{message}}</b>
+        </div>
+     </div>
+  </div>
+</div>
+<div class="row d-flex justify-content-center">
+    <button type="button" class="btn btn-link" (click)="gotoRegister()">Go to register</button>
+</div>
+
+<table  class="table">
+  <tr>
+      <th>Name</th>
+      <th>Quantity</th>
+      <th>Price</th>
+  </tr>
+  
+  <tr *ngFor="let item of tableData">
+  <td>{{item.productName}}</td>
+  <td>{{item.productQuantity}}</td>
+  <td>{{item.productPrice}}</td>
+  </tr>
+  </table>
+  <hr>
+
+  <h3> Json placeholder data</h3>
+  <table class="table table-striped table-hover table-sm">
+<thead class="thead-dark">
+  <th>#</th>
+  <th>full Name</th>
+  <th>Email</th>
+  <th>Adress</th>
+</thead>
+    <tbody>
+      <tr *ngFor="let user of userlist">
+        <td>{{user.id}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.address.street}}</td>
+      </tr>
+    </tbody>
+  </table>
